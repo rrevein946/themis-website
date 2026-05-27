@@ -1,0 +1,381 @@
+:root {
+  --primary: #0f2b46;
+  --accent: #c9a227;
+  --light: #f5f7fa;
+  --text: #333;
+  --white: #fff;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body 
+{ 
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; 
+    color: var(--text); 
+    line-height: 1.6; 
+    background: var(--light); 
+}
+
+.container 
+{ 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 1.5rem; 
+}
+
+header 
+{ 
+    background: var(--primary); 
+    padding: 1rem 0; 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
+}
+
+nav 
+{ 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    gap: 1rem; 
+}
+
+.logo 
+{ 
+    font-size: 1.6rem; 
+    font-weight: 700; 
+    color: var(--white); 
+    text-decoration: none; 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+}
+
+.logo span 
+{ 
+    color: var(--accent); 
+}
+
+.nav-links 
+{ 
+    display: flex; 
+    list-style: none; 
+    gap: 1.5rem; 
+    align-items: center; 
+}
+
+.nav-links a 
+{ 
+    color: rgba(255,255,255,0.85); 
+    text-decoration: none; 
+    font-weight: 500; 
+    transition: 0.3s; 
+}
+
+.nav-links a:hover, .nav-links a.active 
+{ 
+    color: var(--accent);
+}
+
+.btn-cabinet 
+{ 
+    background: var(--accent); 
+    color: var(--primary); 
+    padding: 0.5rem 1rem; 
+    border-radius: 4px; 
+    font-weight: 600; 
+    text-decoration: none; 
+    transition: 0.3s; 
+}
+
+.btn-cabinet:hover 
+{ 
+    background: #b89320; 
+}
+
+.hero 
+{ 
+    background: linear-gradient(135deg, var(--primary), #1a3a5c);
+    color: var(--white); 
+    padding: 4rem 0; 
+    text-align: center; 
+    position: relative; 
+    overflow: hidden; 
+}
+
+.hero::before 
+{ 
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v100H0z" fill="none"/><path d="M20 20l60 60M80 20L20 80" stroke="rgba(255,255,255,0.05)" stroke-width="2"/></svg>'); 
+    opacity: 0.3; 
+}
+
+.hero h1 
+{ 
+    font-size: clamp(2rem, 5vw, 3rem); 
+    margin-bottom: 0.5rem; 
+    position: relative; 
+}
+
+.hero p 
+{ 
+    font-size: 1.2rem; 
+    opacity: 0.9; 
+    max-width: 600px; 
+    margin: 0 auto 2rem; 
+    position: relative; 
+}
+
+section 
+{ 
+    padding: 4rem 0; 
+}
+
+.section-title 
+{ 
+    text-align: center; 
+    font-size: 2rem; 
+    color: var(--primary); 
+    margin-bottom: 2.5rem; 
+    position: relative; 
+}
+
+.section-title::after 
+{ 
+    content: ""; 
+    display: block; 
+    width: 60px; 
+    height: 3px; 
+    background: var(--accent); 
+    margin: 0.5rem auto 0; 
+}
+
+.grid 
+{ 
+    display: grid; 
+    gap: 1.5rem; 
+}
+
+.grid-2 
+{ 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-3 
+{ 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+}
+
+.grid-4 
+{ 
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+}
+
+.card 
+{ 
+    background: var(--white); 
+    padding: 1.8rem; 
+    border-radius: var(--radius); 
+    box-shadow: var(--shadow); 
+    transition: 0.3s; 
+}
+
+.card:hover 
+{ 
+    transform: translateY(-4px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12); 
+}
+
+.card h3 
+{ 
+    color: var(--primary); 
+    margin-bottom: 0.5rem; 
+    font-size: 1.2rem; 
+}
+
+.card .num 
+{ 
+    display: inline-block; 
+    background: var(--primary); 
+    color: var(--accent); 
+    padding: 0.2rem 0.6rem; 
+    border-radius: 4px; 
+    font-size: 0.85rem; 
+    margin-bottom: 0.5rem; 
+    font-weight: bold; 
+}
+
+.stats 
+{ 
+    background: var(--white); 
+    padding: 3rem 0; 
+    margin: 2rem 0; 
+    border-radius: var(--radius); 
+    box-shadow: var(--shadow); 
+}
+
+.stat-item 
+{ 
+    text-align: center; 
+}
+
+.stat-item h3 
+{ 
+    font-size: 2.2rem; 
+    color: var(--accent); 
+    margin-bottom: 0.3rem; 
+}
+
+.stat-item p 
+{ 
+    color: #666; 
+}
+
+.review 
+{ 
+    font-style: italic; 
+    color: #555; 
+    position: relative; 
+    padding-left: 1rem; 
+    border-left: 3px solid var(--accent); 
+}
+
+.review p 
+{ 
+    margin-bottom: 0.5rem; 
+}
+
+.review strong 
+{ 
+    display: block; 
+    margin-top: 0.8rem; 
+    font-style: normal; 
+    color: var(--primary); 
+}
+
+.form-box 
+{ 
+    background: var(--white); 
+    padding: 2rem; 
+    border-radius: var(--radius); 
+    box-shadow: var(--shadow); 
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
+input, textarea 
+{ 
+    width: 100%; 
+    padding: 0.9rem; 
+    margin-bottom: 1rem; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-family: inherit; 
+}
+
+textarea 
+{ 
+    min-height: 120px; 
+    resize: vertical; 
+}
+
+button[type="submit"] 
+{ 
+    background: var(--accent); 
+    color: var(--primary); 
+    border: none; 
+    padding: 0.9rem 2rem; 
+    font-weight: bold; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    width: 100%; 
+    transition: 0.3s; 
+}
+
+button[type="submit"]:hover 
+{ 
+    background: #b89320; 
+}
+
+.contact-info 
+{ 
+    margin-top: 2rem; 
+    text-align: center; 
+}
+
+.contact-info p 
+{ 
+    margin: 0.5rem 0; 
+}
+
+.contact-info a 
+{ 
+    color: var(--primary); 
+    font-weight: 500; 
+}
+
+footer 
+{ 
+    background: var(--primary); 
+    color: rgba(255,255,255,0.8); 
+    padding: 2rem 0; 
+    margin-top: 3rem; 
+    text-align: center; 
+    font-size: 0.9rem; 
+}
+
+footer a 
+{ 
+    color: var(--accent); 
+    text-decoration: none; 
+}
+
+footer .nav-links 
+{ 
+    justify-content: center; 
+    margin: 1rem 0; 
+    gap: 1rem; 
+    flex-wrap: wrap; 
+}
+
+@media (max-width: 768px) 
+{
+    .nav-links 
+    { 
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    right: 0; 
+    background: var(--primary); 
+    flex-direction: column; 
+    padding: 1rem; 
+    }
+    
+    .nav-links.show 
+    { 
+        display: flex; 
+    }
+
+    .menu-toggle 
+    { 
+    display: block; 
+    background: none; 
+    border: none; 
+    color: var(--white); 
+    font-size: 1.5rem; 
+    cursor: pointer; 
+    }
+}
+
+.menu-toggle 
+{ 
+    display: none; 
+}
