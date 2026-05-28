@@ -64,7 +64,11 @@
 
 ## Связи между таблицами
 categories 1 ─── * services
+
 users 1 ─── * applications (как клиент)
+
 users 1 ─── * applications (как специалист)
+
 services 1 ─── * applications
+
 statuses 1 ─── * applications
