@@ -36,14 +36,15 @@ img { max-width: 100%; display: block; }
   padding: 0 30px;
 }
 
-/* ================= HEADER ================= */
+
+/* HEADER */
 header {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
-  padding: 5px 0;  /* Уменьшите до 5px или даже 0 */
+  padding: 20px 0;
 }
 
 .nav-container {
@@ -52,7 +53,6 @@ header {
   align-items: center;
   padding: 0 30px;
   max-width: 100%;
-  margin-top: 0;  /* Добавьте это */
 }
 
 .logo {
@@ -62,8 +62,9 @@ header {
 }
 
 .logo img {
-  width: 100px;       /* любое значение */
-  height: auto;       /* авто-высота сохранит пропорции */
+  width: 100px;
+  height: auto;
+  object-fit: contain;
 }
 
 .logo-text h2 {
@@ -84,14 +85,15 @@ header {
 
 .nav-links {
   display: flex;
-  gap: 35px;
+  gap: 100px;
   align-items: center;
+  margin-top: -120px;
 }
 
 .nav-links a {
   color: var(--bg-color);
   font-family: 'Playfair Display', serif;
-  font-size: 18pt;    /* было 24pt - уменьшите */
+  font-size: 18pt;
   font-weight: 400;
 }
 
@@ -106,7 +108,7 @@ header {
   border-radius: 4px;
   color: var(--bg-color);
   font-family: 'Playfair Display', serif;
-  font-size: 18pt;    /* было 24pt - уменьшите */
+  font-size: 18pt;
 }
 
 .btn-cabinet:hover {
@@ -114,7 +116,8 @@ header {
   color: var(--text-main);
 }
 
-/* ================= HERO ================= */
+
+/* HERO */
 .hero {
   position: relative;
   height: 100vh;
@@ -159,10 +162,9 @@ header {
   max-width: 700px;
 }
 
-/* ================= ABOUT ================= */
-/* ================= ABOUT ================= */
+
+/* ABOUT */
 .about-section {
-  /* Убираем любые отрицательные отступы у секции, чтобы текст остался на месте */
   padding: 80px 30px;
   display: flex;
   align-items: center;
@@ -170,17 +172,34 @@ header {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  z-index: 5; /* Секция поверх hero */
+  z-index: 5; 
 }
 
 .about-text {
   flex: 1;
   padding-left: 30px;
-  /* Текст остаётся строго на своём месте */
+}
+
+.about-image {
+  flex: 1;
+  position: relative;
+  margin-top: -140px; 
+  margin-bottom: -70px; 
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 680px; 
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 15px 15px 0 var(--accent);
+  position: relative;
+  z-index: 10; 
+  object-fit: cover;
 }
 
 .about-text h2 {
-  font-size: 48pt;  /* Было 2.5rem */
+  font-size: 40pt;  
   margin-bottom: 25px;
   position: relative;
   display: inline-block;
@@ -189,56 +208,44 @@ header {
 .about-text h2::after {
   content: '';
   display: block;
-  width: 132px;  /* Было 60px */
+  width: 132px;  
   height: 3px;
-  background: #D9AC89;  /* Было var(--accent) */
+  background: #D9AC89;  
   margin-top: 12px;
 }
 
 .about-text p {
   font-family: 'Philosopher', sans-serif;
-  font-size: 32pt;
+  font-size: 24pt;
   color: var(--text-light);
   margin-bottom: 15px;
-  line-height: 1.5; /* Оптимизировано под крупный кегль */
+  line-height: 1.5; 
   font-weight: 400;
 }
 
-.about-image {
-  flex: 1;
-  position: relative;
-  /* ⬇️ Тянем ТОЛЬКО картинку вверх, чтобы она залезла на фоне */
-  margin-top: -140px; 
-  margin-bottom: -70px; /* Компенсирует высоту, чтобы не ломать блоки ниже */
-}
-
-.about-image img {
-  width: 100%;
-  max-width: 680px; /* 📏 Размер картинки увеличен */
-  height: auto;
-  border-radius: 4px;
-  box-shadow: 15px 15px 0 var(--accent);
-  position: relative;
-  z-index: 10; /* Картинка точно поверх фона и затемнения hero */
-  object-fit: cover;
-}
-
-/* ================= PRACTICE ================= */
+/* PRACTICE */
 .practice-section {
-  padding: 60px 30px;
-  background: var(--white);
+  padding: 80px 30px;
+  background: #ffffff; 
 }
 
+.practice-wrapper {
+  display: flex;
+  gap: 80px; /* Расстояние между списком услуг и статистикой */
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start; /* Выравнивание по верхнему краю */
+}
+
+/* Заголовок "Области практики" */
 .section-title {
-  text-align: left; /* Оставьте center, если заголовок по центру страницы */
+  text-align: left;
   font-size: 40pt;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
   color: var(--text-main);
   position: relative;
   display: inline-block;
   width: 100%;
-  margin-top: 12px;
-  margin-left: 0;
 }
 
 .section-title::after {
@@ -247,49 +254,101 @@ header {
   width: 132px;
   height: 3px;
   background: #D9AC89;
-  margin-top: 12px; 
+  margin-top: 12px;
 }
 
-.practice-grid {
+/* === СЕТКА ДЛЯ БЛОКОВ (2 колонки, 4 ряда) === */
+.practice-list {
+  flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: repeat(2, 1fr); /* 2 колонки равной ширины */
+  gap: 30px 50px; /* 30px между строками, 50px между колонками */
 }
 
-.practice-card {
-  border: 1px solid #eee;
-  padding: 30px;
-  transition: 0.3s;
-  position: relative;
-  background: var(--bg-color);
-}
-
-.practice-card:hover {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  border-color: var(--accent);
+.practice-item {
+  display: flex;
+  gap: 15px;
 }
 
 .practice-num {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  color: #ddd;
-  position: absolute;
-  top: 15px;
-  right: 25px;
+  font-size: 24pt;
+  color: var(--accent);
   font-weight: 700;
+  min-width: 50px;
 }
 
-.practice-card h3 {
-  font-size: 1.15rem;
+.practice-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18pt;
   margin-bottom: 8px;
-  position: relative;
-  z-index: 2;
+  color: var(--text-main);
   font-weight: 600;
+  line-height: 1.2;
 }
 
-/* ================= STATS ================= */
+.practice-content p {
+  font-family: 'Lato', sans-serif;
+  font-size: 14pt;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+/* Правая колонка со статистикой */
+.practice-stats {
+  flex: 0 0 300px; /* Фиксированная ширина для статистики */
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 100px;
+}
+
+.practice-stats .stat-item {
+  text-align: center;
+}
+
+.practice-stats .stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 48pt;
+  color: #D9AC89;
+  margin: 0;
+  line-height: 1;
+}
+
+.practice-stats .stat-desc {
+  font-family: 'Playfair Display', serif;
+  font-size: 18pt;
+  color: var(--text-main);
+  margin-top: 5px;
+}
+
+.practice-stats .stat-note {
+  font-family: 'Lato', sans-serif;
+  font-size: 10pt;
+  color: var(--text-light);
+  margin-top: 5px;
+}
+
+/* Адаптивность для планшетов и телефонов */
+@media (max-width: 992px) {
+  .practice-wrapper {
+    flex-direction: column;
+  }
+  .practice-list {
+    grid-template-columns: 1fr; /* На мобильных 1 колонка */
+  }
+  .practice-stats {
+    flex: 1;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 40px;
+    gap: 20px;
+  }
+}
+
+
+/* STATS */
 .stats-section {
   padding: 60px 30px;
   background: var(--bg-color);
@@ -319,40 +378,84 @@ header {
   color: var(--text-light);
 }
 
-/* ================= REVIEWS ================= */
+
+/* REVIEWS */
 .reviews-section {
+  padding: 0; 
+  background: transparent;
+}
+
+.reviews-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.reviews-left {
+  flex: 1;
+  background: var(--bg-color); 
+  padding: 80px 30px 80px 30px; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.reviews-title {
+  text-align: left;
+  margin-left: 30px; 
+  margin-bottom: 40px;
+  width: auto;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  padding-left: 30px; 
+}
+
+.review-img {
+  width: 100%;
+  max-width: 450px; 
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.reviews-right {
+  flex: 1;
+  background: #ffffff; 
   padding: 80px 30px;
-  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
+.reviews-photo img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  object-fit: cover;
 }
 
-.review-card {
-  background: var(--bg-color);
-  padding: 30px;
-  border-radius: 4px;
-  font-style: italic;
-  border-left: 4px solid var(--accent);
+/* Адаптивность */
+@media (max-width: 992px) {
+  .reviews-wrapper {
+    flex-direction: column;
+  }
+  .reviews-left, .reviews-right {
+    width: 100%;
+    padding: 40px 20px;
+  }
+  .review-img {
+    max-width: 100%;
+  }
 }
 
-.review-card p {
-  margin-bottom: 15px;
-  color: var(--text-light);
-}
 
-.review-card strong {
-  font-style: normal;
-  color: var(--accent);
-  font-weight: 600;
-}
-
-/* ================= CONTACTS FORM ================= */
+/* CONTACTS FORM */
 .contact-section {
   padding: 80px 30px;
   background: var(--bg-color);
@@ -428,9 +531,10 @@ header {
   font-weight: 500;
 }
 
-/* ================= FOOTER ================= */
+
+/* FOOTER */
 footer {
-  background: #1a1a1a;
+  background: #D9AC89;
   color: #fff;
   padding: 40px 30px 25px;
   text-align: center;
@@ -455,13 +559,13 @@ footer {
 }
 
 .copyright {
-  color: #888;
+  color: #F0CBAF;
   font-size: 0.9rem;
-  border-top: 1px solid #333;
+  border-top: 1px solid #F0CBAF;
   padding-top: 20px;
 }
 
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 @media (max-width: 992px) {
   .about-section {
     flex-direction: column;
