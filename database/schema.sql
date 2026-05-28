@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS statuses (
     name VARCHAR(50) NOT NULL,
     slug VARCHAR(50) NOT NULL UNIQUE,
     description VARCHAR(255)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+);
 
 -- 2. Пользователи
 CREATE TABLE IF NOT EXISTS users (
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS users (
     role ENUM('user', 'specialist', 'admin') DEFAULT 'user',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+);
 
 -- 3. Категории услуг
 CREATE TABLE IF NOT EXISTS categories (
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS categories (
     name VARCHAR(100) NOT NULL,
     slug VARCHAR(100) NOT NULL UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+);
 
 -- 4. Услуги (контентная сущность)
 CREATE TABLE IF NOT EXISTS services (
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS services (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+);
 
 -- 5. Заявки (операционная сущность)
 CREATE TABLE IF NOT EXISTS applications (
@@ -58,4 +58,4 @@ CREATE TABLE IF NOT EXISTS applications (
     FOREIGN KEY (service_id) REFERENCES services(id) ON DELETE RESTRICT,
     FOREIGN KEY (specialist_id) REFERENCES users(id) ON DELETE SET NULL,
     FOREIGN KEY (status_id) REFERENCES statuses(id) ON DELETE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+);
