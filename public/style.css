@@ -1,381 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
 :root {
-  --primary: #0f2b46;
-  --accent: #c9a227;
-  --light: #f5f7fa;
-  --text: #333;
-  --white: #fff;
-  --shadow: 0 4px 12px rgba(0,0,0,0.08);
-  --radius: 8px;
+  --bg-color: #FFF9ED;
+  --text-main: #2c2c2c;
+  --text-light: #555;
+  --accent: #b89327;
+  --white: #ffffff;
+  --gold-light: #D5BDB3;
+  --dark-overlay: rgba(0, 0, 0, 0.4);
 }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body 
-{ 
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; 
-    color: var(--text); 
-    line-height: 1.6; 
-    background: var(--light); 
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
 }
 
-.container 
-{ 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 0 1.5rem; 
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-header 
-{ 
-    background: var(--primary); 
-    padding: 1rem 0; 
-    position: sticky; 
-    top: 0; 
-    z-index: 100; 
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
 }
 
-nav 
-{ 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    flex-wrap: wrap; 
-    gap: 1rem; 
+/* ================= HEADER ================= */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 5px 0;  /* Уменьшите до 5px или даже 0 */
 }
 
-.logo 
-{ 
-    font-size: 1.6rem; 
-    font-weight: 700; 
-    color: var(--white); 
-    text-decoration: none; 
-    display: flex; 
-    align-items: center; 
-    gap: 0.5rem; 
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  max-width: 100%;
+  margin-top: 0;  /* Добавьте это */
 }
 
-.logo span 
-{ 
-    color: var(--accent); 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.nav-links 
-{ 
-    display: flex; 
-    list-style: none; 
-    gap: 1.5rem; 
-    align-items: center; 
+.logo img {
+  width: 100px;       /* любое значение */
+  height: auto;       /* авто-высота сохранит пропорции */
 }
 
-.nav-links a 
-{ 
-    color: rgba(255,255,255,0.85); 
-    text-decoration: none; 
-    font-weight: 500; 
-    transition: 0.3s; 
+.logo-text h2 {
+  font-size: 40pt;
+  margin: 0;
+  line-height: 1;
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
 }
 
-.nav-links a:hover, .nav-links a.active 
-{ 
-    color: var(--accent);
+.logo-text span {
+  font-size: 20pt;
+  font-family: 'Lato', sans-serif;
+  color: var(--gold-light);
+  display: block;
+  margin-top: 5px;
 }
 
-.btn-cabinet 
-{ 
-    background: var(--accent); 
-    color: var(--primary); 
-    padding: 0.5rem 1rem; 
-    border-radius: 4px; 
-    font-weight: 600; 
-    text-decoration: none; 
-    transition: 0.3s; 
+.nav-links {
+  display: flex;
+  gap: 35px;
+  align-items: center;
 }
 
-.btn-cabinet:hover 
-{ 
-    background: #b89320; 
+.nav-links a {
+  color: var(--bg-color);
+  font-family: 'Playfair Display', serif;
+  font-size: 18pt;    /* было 24pt - уменьшите */
+  font-weight: 400;
 }
 
-.hero 
-{ 
-    background: linear-gradient(135deg, var(--primary), #1a3a5c);
-    color: var(--white); 
-    padding: 4rem 0; 
-    text-align: center; 
-    position: relative; 
-    overflow: hidden; 
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
 }
 
-.hero::before 
-{ 
-    content: ""; 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0; 
-    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v100H0z" fill="none"/><path d="M20 20l60 60M80 20L20 80" stroke="rgba(255,255,255,0.05)" stroke-width="2"/></svg>'); 
-    opacity: 0.3; 
+.btn-cabinet {
+  border: 1px solid var(--bg-color);
+  padding: 8px 20px;
+  border-radius: 4px;
+  color: var(--bg-color);
+  font-family: 'Playfair Display', serif;
+  font-size: 18pt;    /* было 24pt - уменьшите */
 }
 
-.hero h1 
-{ 
-    font-size: clamp(2rem, 5vw, 3rem); 
-    margin-bottom: 0.5rem; 
-    position: relative; 
+.btn-cabinet:hover {
+  background: var(--white);
+  color: var(--text-main);
 }
 
-.hero p 
-{ 
-    font-size: 1.2rem; 
-    opacity: 0.9; 
-    max-width: 600px; 
-    margin: 0 auto 2rem; 
-    position: relative; 
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--white);
+  background-image: url('images/themsisMain.png');
+  background-size: cover;
+  background-position: center;
+  padding-left: 30px;
 }
 
-section 
-{ 
-    padding: 4rem 0; 
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--dark-overlay);
 }
 
-.section-title 
-{ 
-    text-align: center; 
-    font-size: 2rem; 
-    color: var(--primary); 
-    margin-bottom: 2.5rem; 
-    position: relative; 
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
 }
 
-.section-title::after 
-{ 
-    content: ""; 
-    display: block; 
-    width: 60px; 
-    height: 3px; 
-    background: var(--accent); 
-    margin: 0.5rem auto 0; 
+.hero h1 {
+  font-size: 48pt;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  font-family: 'Playfair Display', serif;
+  color: var(--bg-color);
+  line-height: 1.1;
 }
 
-.grid 
-{ 
-    display: grid; 
-    gap: 1.5rem; 
+.hero p {
+  font-size: 24pt;
+  font-family: 'Philosopher', sans-serif;
+  color: var(--gold-light);
+  font-weight: 300;
+  max-width: 700px;
 }
 
-.grid-2 
-{ 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+/* ================= ABOUT ================= */
+/* ================= ABOUT ================= */
+.about-section {
+  /* Убираем любые отрицательные отступы у секции, чтобы текст остался на месте */
+  padding: 80px 30px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5; /* Секция поверх hero */
 }
 
-.grid-3 
-{ 
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+.about-text {
+  flex: 1;
+  padding-left: 30px;
+  /* Текст остаётся строго на своём месте */
 }
 
-.grid-4 
-{ 
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+.about-text h2 {
+  font-size: 48pt;  /* Было 2.5rem */
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
 }
 
-.card 
-{ 
-    background: var(--white); 
-    padding: 1.8rem; 
-    border-radius: var(--radius); 
-    box-shadow: var(--shadow); 
-    transition: 0.3s; 
+.about-text h2::after {
+  content: '';
+  display: block;
+  width: 132px;  /* Было 60px */
+  height: 3px;
+  background: #D9AC89;  /* Было var(--accent) */
+  margin-top: 12px;
 }
 
-.card:hover 
-{ 
-    transform: translateY(-4px); 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12); 
+.about-text p {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 32pt;
+  color: var(--text-light);
+  margin-bottom: 15px;
+  line-height: 1.5; /* Оптимизировано под крупный кегль */
+  font-weight: 400;
 }
 
-.card h3 
-{ 
-    color: var(--primary); 
-    margin-bottom: 0.5rem; 
-    font-size: 1.2rem; 
+.about-image {
+  flex: 1;
+  position: relative;
+  /* ⬇️ Тянем ТОЛЬКО картинку вверх, чтобы она залезла на фоне */
+  margin-top: -140px; 
+  margin-bottom: -70px; /* Компенсирует высоту, чтобы не ломать блоки ниже */
 }
 
-.card .num 
-{ 
-    display: inline-block; 
-    background: var(--primary); 
-    color: var(--accent); 
-    padding: 0.2rem 0.6rem; 
-    border-radius: 4px; 
-    font-size: 0.85rem; 
-    margin-bottom: 0.5rem; 
-    font-weight: bold; 
+.about-image img {
+  width: 100%;
+  max-width: 680px; /* 📏 Размер картинки увеличен */
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 15px 15px 0 var(--accent);
+  position: relative;
+  z-index: 10; /* Картинка точно поверх фона и затемнения hero */
+  object-fit: cover;
 }
 
-.stats 
-{ 
-    background: var(--white); 
-    padding: 3rem 0; 
-    margin: 2rem 0; 
-    border-radius: var(--radius); 
-    box-shadow: var(--shadow); 
+/* ================= PRACTICE ================= */
+.practice-section {
+  padding: 60px 30px;
+  background: var(--white);
 }
 
-.stat-item 
-{ 
-    text-align: center; 
+.section-title {
+  text-align: left; /* Оставьте center, если заголовок по центру страницы */
+  font-size: 40pt;
+  margin-bottom: 25px;
+  color: var(--text-main);
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-top: 12px;
+  margin-left: 0;
 }
 
-.stat-item h3 
-{ 
-    font-size: 2.2rem; 
-    color: var(--accent); 
-    margin-bottom: 0.3rem; 
+.section-title::after {
+  content: '';
+  display: block;
+  width: 132px;
+  height: 3px;
+  background: #D9AC89;
+  margin-top: 12px; 
 }
 
-.stat-item p 
-{ 
-    color: #666; 
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.review 
-{ 
-    font-style: italic; 
-    color: #555; 
-    position: relative; 
-    padding-left: 1rem; 
-    border-left: 3px solid var(--accent); 
+.practice-card {
+  border: 1px solid #eee;
+  padding: 30px;
+  transition: 0.3s;
+  position: relative;
+  background: var(--bg-color);
 }
 
-.review p 
-{ 
-    margin-bottom: 0.5rem; 
+.practice-card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-color: var(--accent);
 }
 
-.review strong 
-{ 
-    display: block; 
-    margin-top: 0.8rem; 
-    font-style: normal; 
-    color: var(--primary); 
+.practice-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #ddd;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-weight: 700;
 }
 
-.form-box 
-{ 
-    background: var(--white); 
-    padding: 2rem; 
-    border-radius: var(--radius); 
-    box-shadow: var(--shadow); 
-    max-width: 600px; 
-    margin: 0 auto; 
+.practice-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 2;
+  font-weight: 600;
 }
 
-input, textarea 
-{ 
-    width: 100%; 
-    padding: 0.9rem; 
-    margin-bottom: 1rem; 
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    font-family: inherit; 
+/* ================= STATS ================= */
+.stats-section {
+  padding: 60px 30px;
+  background: var(--bg-color);
 }
 
-textarea 
-{ 
-    min-height: 120px; 
-    resize: vertical; 
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-button[type="submit"] 
-{ 
-    background: var(--accent); 
-    color: var(--primary); 
-    border: none; 
-    padding: 0.9rem 2rem; 
-    font-weight: bold; 
-    cursor: pointer; 
-    border-radius: 4px; 
-    width: 100%; 
-    transition: 0.3s; 
+.stat-item h3 {
+  font-size: 3.5rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif;
 }
 
-button[type="submit"]:hover 
-{ 
-    background: #b89320; 
+.stat-item p {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-light);
 }
 
-.contact-info 
-{ 
-    margin-top: 2rem; 
-    text-align: center; 
+/* ================= REVIEWS ================= */
+.reviews-section {
+  padding: 80px 30px;
+  background: var(--white);
 }
 
-.contact-info p 
-{ 
-    margin: 0.5rem 0; 
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.contact-info a 
-{ 
-    color: var(--primary); 
-    font-weight: 500; 
+.review-card {
+  background: var(--bg-color);
+  padding: 30px;
+  border-radius: 4px;
+  font-style: italic;
+  border-left: 4px solid var(--accent);
 }
 
-footer 
-{ 
-    background: var(--primary); 
-    color: rgba(255,255,255,0.8); 
-    padding: 2rem 0; 
-    margin-top: 3rem; 
-    text-align: center; 
-    font-size: 0.9rem; 
+.review-card p {
+  margin-bottom: 15px;
+  color: var(--text-light);
 }
 
-footer a 
-{ 
-    color: var(--accent); 
-    text-decoration: none; 
+.review-card strong {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 600;
 }
 
-footer .nav-links 
-{ 
-    justify-content: center; 
-    margin: 1rem 0; 
-    gap: 1rem; 
-    flex-wrap: wrap; 
+/* ================= CONTACTS FORM ================= */
+.contact-section {
+  padding: 80px 30px;
+  background: var(--bg-color);
+  text-align: center;
 }
 
-@media (max-width: 768px) 
-{
-    .nav-links 
-    { 
-    display: none; 
-    position: absolute; 
-    top: 100%; 
-    left: 0; 
-    right: 0; 
-    background: var(--primary); 
-    flex-direction: column; 
-    padding: 1rem; 
-    }
-    
-    .nav-links.show 
-    { 
-        display: flex; 
-    }
-
-    .menu-toggle 
-    { 
-    display: block; 
-    background: none; 
-    border: none; 
-    color: var(--white); 
-    font-size: 1.5rem; 
-    cursor: pointer; 
-    }
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
 }
 
-.menu-toggle 
-{ 
-    display: none; 
+.contact-section > p {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+.form-box {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.form-box input,
+.form-box textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.form-box textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-box button {
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+  transition: 0.3s;
+  font-family: 'Playfair Display', serif;
+}
+
+.form-box button:hover {
+  background: #a08020;
+}
+
+.contact-info {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text-light);
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+.contact-info a {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 40px 30px 25px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--bg-color);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.copyright {
+  color: #888;
+  font-size: 0.9rem;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-text {
+    padding-left: 0;
+  }
+  .about-text h2::after {
+    margin: 12px auto 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 32pt;
+  }
+  .hero p {
+    font-size: 18pt;
+  }
+  .logo-text h2 {
+    font-size: 28pt;
+  }
+  .logo-text span {
+    font-size: 14pt;
+  }
+  .nav-links a,
+  .btn-cabinet {
+    font-size: 18pt;
+  }
 }
