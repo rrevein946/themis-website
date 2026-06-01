@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЮК “Фемида” | Области практики</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ШАПКА -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Логотип Фемида">
+        <div class="logo-text">
+          <h2>"ФЕМИДА"</h2>
+          <span>юридическая компания</span>
+        </div>
+      </a>
+      
+      <button class="menu-toggle" aria-label="Меню">☰</button>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="practice.html" class="active">Области практики</a></li>
+        <li><a href="lawyers.html">Юристы</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+        <li><a href="#" class="btn-cabinet">Личный кабинет</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="practice-hero"></section>
+
+    <section class="practice-areas-section">
+      <div class="container">
+        <h2 class="section-title">ОБЛАСТИ ПРАКТИКИ</h2>
+        <div class="underline"></div>
+        
+        <div class="law-areas-grid">
+          <div class="law-card" onclick="toggleCard(this)">
+            <div class="law-card-header">
+              <span class="law-card-num">01</span>
+              <h3>Гражданское право</h3>
+              <span class="law-card-arrow">▼</span>
+            </div>
+            <div class="law-card-content">
+              <ul>
+                <li>Защита прав собственности</li>
+                <li>Договорные обязательства и споры</li>
+                <li>Возмещение материального и морального ущерба</li>
+                <li>Защита прав потребителей</li>
+                <li>Наследственные дела и споры</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="law-card" onclick="toggleCard(this)">
+            <div class="law-card-header">
+              <span class="law-card-num">02</span>
+              <h3>Административное право</h3>
+              <span class="law-card-arrow">▼</span>
+            </div>
+            <div class="law-card-content">
+              <ul>
+                <li>Оспаривание штрафов и постановлений</li>
+                <li>Защита при проверках контролирующих органов</li>
+                <li>Лицензирование и аккредитация</li>
+                <li>Споры с государственными органами</li>
+                <li>Административные процедуры и жалобы</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="law-card" onclick="toggleCard(this)">
+            <div class="law-card-header">
+              <span class="law-card-num">03</span>
+              <h3>Уголовное право</h3>
+              <span class="law-card-arrow">▼</span>
+            </div>
+            <div class="law-card-content">
+              <ul>
+                <li>Защита подозреваемых и обвиняемых</li>
+                <li>Представительство интересов потерпевших</li>
+                <li>Условно-досрочное освобождение (УДО)</li>
+                <li>Обжалование приговоров и постановлений</li>
+                <li>Сопровождение на стадии следствия</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="law-card" onclick="toggleCard(this)">
+            <div class="law-card-header">
+              <span class="law-card-num">04</span>
+              <h3>Семейное право</h3>
+              <span class="law-card-arrow">▼</span>
+            </div>
+            <div class="law-card-content">
+              <ul>
+                <li>Расторжение брака и раздел имущества</li>
+                <li>Взыскание и изменение алиментов</li>
+                <li>Определение места жительства детей</li>
+                <li>Установление/оспаривание отцовства</li>
+                <li>Составление брачных договоров</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="law-card" onclick="toggleCard(this)">
+            <div class="law-card-header">
+              <span class="law-card-num">05</span>
+              <h3>Уголовно-процессуальное право</h3>
+              <span class="law-card-arrow">▼</span>
+            </div>
+            <div class="law-card-content">
+              <ul>
+                <li>Участие в следственных действиях</li>
+                <li>Подача процессуальных ходатайств</li>
+                <li>Обжалование действий следователя/дознавателя</li>
+                <li>Представительство в судебных заседаниях</li>
+                <li>Работа с вещественными доказательствами</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="law-card" onclick="toggleCard(this)">
+            <div class="law-card-header">
+              <span class="law-card-num">06</span>
+              <h3>Финансовое право</h3>
+              <span class="law-card-arrow">▼</span>
+            </div>
+            <div class="law-card-content">
+              <ul>
+                <li>Налоговые споры и проверки</li>
+                <li>Банковское право и кредитные споры</li>
+                <li>Страховые правоотношения</li>
+                <li>Обращение ценных бумаг</li>
+                <li>Финансовый мониторинг и compliance</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="law-card" onclick="toggleCard(this)">
+            <div class="law-card-header">
+              <span class="law-card-num">07</span>
+              <h3>Гражданско-процессуальное право</h3>
+              <span class="law-card-arrow">▼</span>
+            </div>
+            <div class="law-card-content">
+              <ul>
+                <li>Представительство в судах общей юрисдикции</li>
+                <li>Составление исков, отзывов, апелляций</li>
+                <li>Обеспечение иска и арест имущества</li>
+                <li>Исполнительное производство</li>
+                <li>Пересмотр дел по вновь открывшимся обстоятельствам</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="law-card" onclick="toggleCard(this)">
+            <div class="law-card-header">
+              <span class="law-card-num">08</span>
+              <h3>Трудовое право</h3>
+              <span class="law-card-arrow">▼</span>
+            </div>
+            <div class="law-card-content">
+              <ul>
+                <li>Разрешение индивидуальных трудовых споров</li>
+                <li>Восстановление на работе</li>
+                <li>Взыскание заработной платы и компенсаций</li>
+                <li>Производственный травматизм</li>
+                <li>Аудит кадровых документов работодателя</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="law-card" onclick="toggleCard(this)">
+            <div class="law-card-header">
+              <span class="law-card-num">09</span>
+              <h3>Земельное право</h3>
+              <span class="law-card-arrow">▼</span>
+            </div>
+            <div class="law-card-content">
+              <ul>
+                <li>Оформление прав на земельные участки</li>
+                <li>Разрешение споров о границах и межевании</li>
+                <li>Изъятие земель для государственных нужд</li>
+                <li>Аренда и выкуп муниципальной земли</li>
+                <li>Перевод земель в другую категорию</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="law-card" onclick="toggleCard(this)">
+            <div class="law-card-header">
+              <span class="law-card-num">10</span>
+              <h3>Предпринимательское право</h3>
+              <span class="law-card-arrow">▼</span>
+            </div>
+            <div class="law-card-content">
+              <ul>
+                <li>Регистрация, реорганизация и ликвидация бизнеса</li>
+                <li>Сопровождение коммерческих сделок</li>
+                <li>Налоговое планирование и споры с ФНС</li>
+                <li>Защита интеллектуальной собственности</li>
+                <li>Разрешение корпоративных конфликтов</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="law-card" onclick="toggleCard(this)">
+            <div class="law-card-header">
+              <span class="law-card-num">11</span>
+              <h3>Жилищное право</h3>
+              <span class="law-card-arrow">▼</span>
+            </div>
+            <div class="law-card-content">
+              <ul>
+                <li>Споры с управляющими компаниями и ТСЖ</li>
+                <li>Приватизация и выселение/вселение</li>
+                <li>Согласование перепланировки</li>
+                <li>Долевое строительство и ДДУ</li>
+                <li>Взыскание коммунальных задолженностей</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ФУТЕР -->
+  <footer class="main-footer">
+    <div class="container footer-content">
+      <h2 class="footer-title">ВАМ НУЖНА ЮРИДИЧЕСКАЯ ПОМОЩЬ?</h2>
+      <p class="footer-subtitle">Наши специалисты всегда на связи</p>
+      <p class="footer-text">Закажите наши услуги на сайте или по номеру телефона</p>
+      
+      <div class="footer-contacts">
+        <p>Адрес: г. Уфа, ул. Фрунзенская, д. 45, к. 3</p>
+        <p>Горячая линия: +7-999-045-11-22</p>
+        <p>Мы ВКонтакте: @femida_law_ufa</p>
+      </div>
+      <div class="footer-copyright">
+        @Юридическая компания Фемида. Все права защищены © 2026
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

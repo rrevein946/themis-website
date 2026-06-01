@@ -1,0 +1,1108 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --bg-color: #FFF9ED;
+  --text-main: #4B3A34;
+  --text-light: #8f7e70;
+  --accent: #b89327;
+  --white: #ffffff;
+  --gold-light: #D5BDB3;
+  --dark-overlay: rgba(0, 0, 0, 0.4);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+
+/* ШАПКА */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 20px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  max-width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+.logo-text h2 {
+  font-size: 40pt;
+  margin-top: -130px;
+  line-height: 1;
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+}
+
+.logo-text span {
+  font-size: 20pt;
+  font-family: 'Playfair Display', serif;
+  color: var(--gold-light);
+  display: block;
+  margin-top: 5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  margin-top: -200px;
+}
+
+.nav-links a {
+  color: var(--bg-color);
+  font-family: 'Playfair Display', serif;
+  font-size: 18pt;
+  font-weight: 400;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+
+.btn-cabinet {
+  border: 1px solid var(--bg-color);
+  padding: 8px 20px;
+  border-radius: 4px;
+  color: var(--bg-color);
+  font-family: 'Playfair Display', serif;
+  font-size: 18pt;
+}
+
+.btn-cabinet:hover {
+  background: var(--white);
+  color: var(--text-main);
+}
+
+
+
+/* ГЛАВНАЯ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--white);
+  background-image: url('images/themsisMain.png');
+  background-size: cover;
+  background-position: center;
+  padding-left: 30px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--dark-overlay);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+}
+
+.hero h1 {
+  font-size: 40pt;
+  margin-bottom: 15px;
+  margin-left: 30px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  font-family: 'Playfair Display', serif;
+  color: var(--bg-color);
+  line-height: 1.1;
+}
+
+.hero p {
+  font-size: 20pt;
+  font-family: 'Philosopher', sans-serif;
+  color: var(--gold-light);
+  font-weight: 300;
+  margin-left: 30px;
+  max-width: 700px;
+}
+
+
+.about-section {
+  padding: 80px 30px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5; 
+}
+
+.about-text {
+  flex: 1;
+  padding-left: 30px;
+}
+
+.about-image {
+  flex: 1;
+  position: relative;
+  margin-top: -140px; 
+  margin-bottom: -70px; 
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 680px; 
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 15px 15px 0 var(--white);
+  position: relative;
+  z-index: 10; 
+  object-fit: cover;
+}
+
+.about-text h2 {
+  font-size: 32pt;  
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+}
+
+.about-text h2::after {
+  content: '';
+  display: block;
+  width: 132px;  
+  height: 3px;
+  background: #D9AC89;  
+  margin-top: 12px;
+}
+
+.about-text p {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 20pt;
+  color: var(--text-light);
+  margin-bottom: 15px;
+  line-height: 1.5; 
+  font-weight: 400;
+}
+
+.practice-section {
+  padding: 80px 30px;
+  background: #ffffff; 
+}
+
+.practice-wrapper {
+  display: flex;
+  gap: 80px; 
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start; 
+}
+
+.section-title {
+  text-align: left;
+  font-size: 32pt;
+  margin-bottom: 40px;
+  color: var(--text-main);
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 132px;
+  height: 3px;
+  background: #D9AC89;
+  margin-top: 12px;
+}
+
+.practice-list {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 30px 50px; 
+}
+
+.practice-item {
+  display: flex;
+  gap: 15px;
+}
+
+.practice-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 24pt;
+  color: var(--accent);
+  font-weight: 700;
+  min-width: 50px;
+}
+
+.practice-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18pt;
+  margin-bottom: 8px;
+  color: var(--text-main);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.practice-content p {
+  font-family: 'Lato', sans-serif;
+  font-size: 12pt;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.practice-stats {
+  flex: 0 0 300px; 
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 100px;
+}
+
+.practice-stats .stat-item {
+  text-align: center;
+}
+
+.practice-stats .stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 48pt;
+  color: #D9AC89;
+  margin: 0;
+  line-height: 1;
+}
+
+.practice-stats .stat-desc {
+  font-family: 'Playfair Display', serif;
+  font-size: 18pt;
+  color: var(--text-main);
+  margin-top: 5px;
+}
+
+.practice-stats .stat-note {
+  font-family: 'Lato', sans-serif;
+  font-size: 10pt;
+  color: var(--text-light);
+  margin-top: 5px;
+  color: rgb(219, 215, 210);
+}
+
+/* Адаптивность  */
+@media (max-width: 992px) {
+  .practice-wrapper {
+    flex-direction: column;
+  }
+  .practice-list {
+    grid-template-columns: 1fr; 
+  }
+  .practice-stats {
+    flex: 1;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 40px;
+    gap: 20px;
+  }
+}
+
+.stats-section {
+  padding: 60px 30px;
+  background: var(--bg-color);
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-item h3 {
+  font-size: 3.5rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif;
+}
+
+.stat-item p {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-light);
+}
+
+.reviews-section {
+  padding: 0; 
+  background: transparent;
+}
+
+.reviews-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.reviews-left {
+  flex: 1;
+  background: var(--bg-color); 
+  padding: 80px 300px 80px 30px; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.reviews-title {
+  text-align: left;
+  margin-left: 300px; 
+  margin-bottom: 40px;
+  width: auto;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  padding-left: 300px; 
+}
+
+.review-img {
+  width: 100%;
+  max-width: 700px; 
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.reviews-right {
+  flex: 1;
+  background: #ffffff; 
+  padding: 80px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviews-photo img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  .reviews-wrapper {
+    flex-direction: column;
+  }
+  .reviews-left, .reviews-right {
+    width: 100%;
+    padding: 40px 20px;
+  }
+  .review-img {
+    max-width: 100%;
+  }
+}
+
+.contact-section {
+  padding: 80px 30px;
+  background: var(--bg-color);
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.contact-section > p {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+.form-box {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.form-box input,
+.form-box textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.form-box textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-box button {
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+  transition: 0.3s;
+  font-family: 'Playfair Display', serif;
+}
+
+.form-box button:hover {
+  background: #a08020;
+}
+
+.contact-info {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text-light);
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+.contact-info a {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+
+/* ФУТЕР */
+.main-footer {
+  background: #D9AC89; 
+  color: #ffffff;
+  padding: 30px 0 10px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  position: relative;
+  letter-spacing: 1px;
+  white-space: nowrap; 
+  width: fit-content; 
+  margin-left: auto;
+  margin-right: auto;  
+}
+
+.footer-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 1px;
+  background: #ffffff;
+  margin: 5px auto 0;
+}
+
+.footer-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; 
+  margin-bottom: 0px;
+}
+
+.footer-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.footer-text a {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.footer-contacts {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer-contacts a {
+  color: #fff;
+}
+
+.footer-copyright {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  border-top: 1px solid rgba(255,255,255,0.4);
+  padding-top: 20px;
+}
+
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-text {
+    padding-left: 0;
+  }
+  .about-text h2::after {
+    margin: 12px auto 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 32pt;
+  }
+  .hero p {
+    font-size: 18pt;
+  }
+  .logo-text h2 {
+    font-size: 28pt;
+  }
+  .logo-text span {
+    font-size: 14pt;
+  }
+  .nav-links a,
+  .btn-cabinet {
+    font-size: 18pt;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-title {
+    font-size: 1.6rem;
+    white-space: normal; 
+  }
+}
+
+
+
+/* О НАС */
+.about-hero {
+  position: relative;
+  width: 100%;
+  height: 471px;
+  background: url('images/lawyersAbout.png') no-repeat center center/cover; 
+  box-shadow: inset 0px 100px 100px rgba(0, 0, 0, 0.25);
+}
+.about-hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(65, 65, 65, 0.5); 
+}
+
+.history-section {
+  background-color: #FFF9ED;
+  padding: 60px 0;
+}
+
+.history-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.history-text {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 20pt;
+  color: var(--text-light);
+  margin-top: 30px;
+  max-width: 800px;
+  line-height: 1.3;
+}
+
+.about-image-wrapper {
+  background-color: #FFF9ED;
+  text-align: center;
+  padding-bottom: 60px;
+  padding-left: 500px;
+}
+
+.about-image-wrapper img {
+  max-width: 900px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: -10px -10px 15px rgba(44, 18, 4, 0.15);
+}
+
+.benefits-section {
+  background-color: #ffffff; 
+  padding: 80px 0 100px;
+}
+
+.benefits-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px; 
+  margin-top: 50px;
+}
+
+.benefit-card {
+  background-color: #FFF9ED;
+  border-radius: 50px; 
+  height: 265px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-light);
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  .benefits-grid {
+    grid-template-columns: 1fr; 
+  }
+  .about-hero {
+    height: 300px;
+  }
+}
+
+
+
+/* ОБЛАСТИ ПРАКТИКИ */
+.practice-hero {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background: url('images/tablePractice.png') no-repeat center center/cover;
+  box-shadow: inset 0px 80px 80px rgba(0, 0, 0, 0.25);
+}
+.practice-hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(65, 65, 65, 0.4);
+}
+
+.practice-areas-section {
+  padding: 60px 0 80px;
+  background: var(--bg-color);
+}
+
+.law-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.law-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #e6d5c0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.law-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: var(--accent);
+}
+
+.law-card.active {
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(217, 172, 137, 0.25);
+}
+
+.law-card-header {
+  padding: 24px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.law-card-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 26pt;
+  color: var(--accent);
+  font-weight: 700;
+  min-width: 45px;
+}
+
+.law-card-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16pt;
+  color: var(--text-main);
+  margin: 0;
+  flex: 1;
+  line-height: 1.2;
+}
+
+.law-card-arrow {
+  font-size: 12pt;
+  color: var(--accent);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.law-card.active .law-card-arrow {
+  transform: rotate(180deg);
+}
+
+.law-card-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.law-card.active .law-card-content {
+  max-height: 350px; 
+}
+
+.law-card-content ul {
+  list-style: none;
+  padding: 0 20px 24px;
+  margin: 0;
+}
+
+.law-card-content li {
+  font-family: 'Lato', sans-serif;
+  font-size: 13pt;
+  color: var(--text-light);
+  padding: 8px 0 8px 22px;
+  border-bottom: 1px solid #f0e6d6;
+  position: relative;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.law-card-content li:before {
+  content: "•";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  font-size: 16pt;
+  line-height: 1.4;
+}
+
+.law-card-content li:last-child {
+  border-bottom: none;
+}
+
+/* Адаптивность */
+@media (max-width: 1100px) {
+  .law-areas-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .law-areas-grid { grid-template-columns: 1fr; }
+  .practice-hero { height: 300px; }
+}
+
+
+
+/* ЮРИСТЫ */
+.lawyers-page {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+}
+
+.lawyers-hero {
+  position: relative;
+  width: 100%;
+  height: 552px;
+  /* Замените путь на ваше изображение */
+  background: url('images/handshakeLawyers.png') no-repeat center center/cover;
+  box-shadow: inset 0px 100px 100px rgba(0, 0, 0, 0.25);
+}
+
+.lawyers-hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(65, 65, 65, 0.5); /* Затемнение 50% */
+}
+
+.lawyers-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.lawyers-title-block {
+  text-align: center;
+  padding: 60px 0 40px;
+}
+
+.lawyers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px;
+  padding-bottom: 80px;
+}
+
+.lawyer-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.lawyer-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  border: 1px solid #eee;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lawyer-card-link:hover .lawyer-card {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(184, 147, 39, 0.15); 
+  border-color: var(--accent);
+}
+
+.lawyer-photo {
+  width: 120px;
+  height: 120px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 3px solid var(--bg-color);
+}
+
+.lawyer-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lawyer-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--text-main);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.lawyer-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.status-advocate {
+  background-color: #f4e6c8;
+  color: #8a6d3b;
+}
+
+.status-lawyer {
+  background-color: #e8e8e8;
+  color: #555;
+}
+
+.lawyer-areas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1; 
+}
+
+.lawyer-areas li {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed #eee;
+}
+
+.lawyer-areas li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+/* Адаптивность для юристов */
+@media (max-width: 1024px) {
+  .lawyers-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 600px) {
+  .lawyers-grid {
+    grid-template-columns: 1fr; 
+  }
+}
+
+
+
+/* КОНТАКТЫ */
+.contacts-page {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+}
+
+.contacts-hero {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: url('images/phoneContacts.png') no-repeat center center/cover;
+  box-shadow: inset 0px 80px 80px rgba(0, 0, 0, 0.25);
+}
+.contacts-hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(65, 65, 65, 0.4);
+}
+
+.contacts-info-section {
+  padding: 60px 0 100px;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr; 
+  gap: 40px 100px;
+  margin-top: 50px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-row {
+  margin-bottom: 100px;
+}
+
+.contact-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 24pt;
+  color: var(--text-main);
+  text-transform: lowercase;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.contact-value {
+  font-family: 'Philosopher', sans-serif;
+  font-size: 24pt;
+  color: var(--text-main);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.contact-value a {
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.contact-value a:hover {
+  color: var(--accent);
+}
+
+.contact-underline {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: 2px;
+  background-color: #D9AC89;
+  margin-top: 8px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .contacts-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .contact-label,
+  .contact-value {
+    font-size: 18pt;
+  }
+  .contacts-hero {
+    height: 250px;
+  }
+}
