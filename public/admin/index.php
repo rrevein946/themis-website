@@ -1,10 +1,9 @@
 <?php
-require_once __DIR__ . '/../src/config/database.php';
-require_once __DIR__ . '/../src/helpers/helpers.php';
-require_once __DIR__ . '/../src/helpers/auth.php';
+require_once __DIR__ . '/../../src/config/database.php';
+require_once __DIR__ . '/../../src/helpers/helpers.php';
+require_once __DIR__ . '/../../src/helpers/auth.php';
 requireAdmin();
 
-// Быстрая статистика
 $stats = [
     'services' => $pdo->query("SELECT COUNT(*) FROM services")->fetchColumn(),
     'apps'     => $pdo->query("SELECT COUNT(*) FROM applications")->fetchColumn(),
