@@ -36,19 +36,23 @@
 1. Создайте пустую базу данных в MySQL:
    ```sql
    CREATE DATABASE themis_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   ```
 2. Импортируйте структуру таблиц из файла database/schema.sql.
 3. Импортируйте тестовые данные из файла database/seed.sql.
 
 ### 3. Настройка подключения к БД
 Откройте файл src/config/database.php и убедитесь, что там указаны правильные логин и пароль от вашего MySQL сервера:
+```sql
 $pdo = new PDO('mysql:host=127.0.0.1;dbname=themis_db;charset=utf8mb4', 'root', 'ваш_пароль', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 ]);
-
+```
 ### 4. Запуск проекта
 ## Способ А: Через встроенный сервер PHP (самый быстрый)
 Откройте терминал в корне проекта и выполните команду:
+```cmd
 php -S localhost:8000 -t public
+```
 Сайт будет доступен по адресу: http://localhost:8000
 
 ## Способ Б: Через OpenServer / XAMPP
