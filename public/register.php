@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once __DIR__ . '/../src/config/database.php';
 require_once __DIR__ . '/../src/helpers/helpers.php';
 
@@ -6,21 +9,18 @@ $errors = [];
 $success = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Сбор и очистка данных
     $firstName = trim($_POST['first_name'] ?? '');
     $lastName = trim($_POST['last_name'] ?? '');
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
     $passwordConfirm = $_POST['password_confirm'] ?? '';
 
-    // Валидация
     if (!$firstName) $errors[] = 'Введите имя';
     if (!$lastName) $errors[] = 'Введите фамилию';
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Некорректный email';
     if (strlen($password) < 6) $errors[] = 'Пароль должен быть от 6 символов';
     if ($password !== $passwordConfirm) $errors[] = 'Пароли не совпадают';
 
-    // Проверка уникальности email
     if (empty($errors)) {
         $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
         $stmt->execute([$email]);
@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Сохранение в БД
     if (empty($errors)) {
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
         $stmt = $pdo->prepare("
@@ -39,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$email, $passwordHash, $firstName, $lastName]);
         
         $success = true;
-        // Авто-вход после регистрации (опционально)
         $_SESSION['user_id'] = $pdo->lastInsertId();
         $_SESSION['role'] = 'user';
         $_SESSION['user_name'] = $firstName;
