@@ -1,8 +1,10 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once __DIR__ . '/../src/config/database.php';
 require_once __DIR__ . '/../src/helpers/helpers.php';
 
-// Если уже авторизован — сразу в кабинет
 if (session_status() === PHP_SESSION_NONE) session_start();
 if (isset($_SESSION['user_id'])) {
     header('Location: /dashboard.php');
@@ -20,19 +22,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        // Поиск пользователя по email (подготовленный запрос!)
         $stmt = $pdo->prepare("SELECT id, email, password_hash, first_name, role FROM users WHERE email = ?");
         $stmt->execute([$email]);
         $user = $stmt->fetch();
 
-        // Проверка пароля
         if ($user && password_verify($password, $user['password_hash'])) {
-            // Успешный вход: сохраняем в сессию
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['role'] = $user['role'];
             $_SESSION['user_name'] = $user['first_name'];
             
-            // Редирект в зависимости от роли
             $redirect = $user['role'] === 'admin' ? '/admin/index.php' : '/dashboard.php';
             header("Location: $redirect");
             exit;
