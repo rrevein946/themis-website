@@ -1,7 +1,6 @@
-CREATE DATABASE IF NOT EXISTS themsis_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE themsis_db;
+CREATE DATABASE IF NOT EXISTS themis_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE themis_db;
 
--- 1. Статусы заявок 
 CREATE TABLE IF NOT EXISTS statuses (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
@@ -9,7 +8,6 @@ CREATE TABLE IF NOT EXISTS statuses (
     description VARCHAR(255)
 );
 
--- 2. Пользователи
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -22,7 +20,6 @@ CREATE TABLE IF NOT EXISTS users (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- 3. Категории услуг
 CREATE TABLE IF NOT EXISTS categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -30,7 +27,6 @@ CREATE TABLE IF NOT EXISTS categories (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 4. Услуги (контентная сущность)
 CREATE TABLE IF NOT EXISTS services (
     id INT AUTO_INCREMENT PRIMARY KEY,
     category_id INT NOT NULL,
@@ -43,7 +39,6 @@ CREATE TABLE IF NOT EXISTS services (
     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE RESTRICT
 );
 
--- 5. Заявки (операционная сущность)
 CREATE TABLE IF NOT EXISTS applications (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
