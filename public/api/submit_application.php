@@ -9,7 +9,6 @@ require_once __DIR__ . '/../../src/helpers/helpers.php';
 header('Content-Type: application/json; charset=utf-8');
 
 try {
-    // Проверка авторизации
     if (!isset($_SESSION['user_id'])) {
         ob_end_clean();
         http_response_code(401);
@@ -20,11 +19,9 @@ try {
         exit;
     }
     
-    // Получаем данные из POST
     $serviceId = filter_input(INPUT_POST, 'service_id', FILTER_VALIDATE_INT);
     $message = trim($_POST['message'] ?? '');
     
-    // Валидация
     if (!$serviceId) {
         ob_end_clean();
         http_response_code(400);
@@ -45,7 +42,6 @@ try {
         exit;
     }
     
-    // Проверяем, что услуга существует и активна
     $stmt = $pdo->prepare("SELECT id FROM services WHERE id = ? AND is_active = 1");
     $stmt->execute([$serviceId]);
     if (!$stmt->fetch()) {
@@ -58,7 +54,6 @@ try {
         exit;
     }
     
-    // Создаём заявку (статус 1 = "Новая")
     $stmt = $pdo->prepare("
         INSERT INTO applications (user_id, service_id, status_id, client_message, created_at) 
         VALUES (?, ?, 1, ?, NOW())
