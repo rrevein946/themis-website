@@ -31,6 +31,7 @@ $services = $stmt->fetchAll();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Каталог услуг — Фемида</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
 </head>
 <body>
 
@@ -69,18 +70,21 @@ $services = $stmt->fetchAll();
         <h2 class="section-title">НАШИ УСЛУГИ</h2>
       </div>
 
-      <!-- ФИЛЬТРЫ -->
-        <div class="services-filter">
-        <a href="/services.php#catalog" class="filter-btn <?= !$catFilter ? 'active' : '' ?>">Все услуги</a>
-        <?php foreach ($cats as $c): ?>
-            <a href="/services.php?category=<?= $c['id'] ?>#catalog" class="filter-btn <?= $catFilter == $c['id'] ? 'active' : '' ?>">
-            <?= e($c['name']) ?>
-            </a>
-        <?php endforeach; ?>
-        </div>
+<!-- ФИЛЬТРЫ -->
+<div class="services-filter" id="servicesFilter">
+  <a href="/services.php" class="filter-btn <?= !$catFilter ? 'active' : '' ?>" data-category="">Все услуги</a>
+  <?php foreach ($cats as $c): ?>
+    <!-- Оставляем реальную ссылку! -->
+    <a href="/services.php?category=<?= $c['id'] ?>" class="filter-btn <?= $catFilter == $c['id'] ? 'active' : '' ?>" data-category="<?= $c['id'] ?>">
+      <?= e($c['name']) ?>
+    </a>
+  <?php endforeach; ?>
+</div>
 
       <!-- СЕТКА УСЛУГ -->
-      <div class="services-grid">
+      <div class="services-grid" id="servicesGrid">
+        <div id="loadingIndicator" style="display:none; text-align:center; padding:40px;">Загрузка...</div>
+        <div class="services-grid" id="servicesGrid">
         <?php foreach ($services as $s): ?>
           <a href="/service.php?id=<?= $s['id'] ?>" class="service-card">
             <div class="service-category"><?= e($s['cat_name']) ?></div>
