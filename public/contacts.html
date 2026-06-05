@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ЮК "Фемида" | Контакты</title>
+  <title>ЮК “Фемида” | О нас</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
 </head>
 <body>
 
@@ -19,68 +20,81 @@
         </div>
       </a>
       
-      <button class="menu-toggle" aria-label="Меню">☰</button>
-      
       <ul class="nav-links">
         <li><a href="index.html">Главная</a></li>
-        <li><a href="about.html">О нас</a></li>
+        <li><a href="about.html" class="active">О нас</a></li>
         <li><a href="practice.html">Области практики</a></li>
-        <li><a href="lawyers.html">Юристы</a></li>
-        <li><a href="contacts.html" class="active">Контакты</a></li>
+        <li><a href="services.php">Услуги</a></li>
+        <a href="lawyers.php">Юристы</a>
+        <li><a href="contacts.html">Контакты</a></li>
         <li><a href="#" class="btn-cabinet">Личный кабинет</a></li>
       </ul>
     </div>
   </header>
 
-  <main class="contacts-page">
-    <!-- HERO С КАРТИНКОЙ -->
-    <section class="contacts-hero"></section>
+  <main>
+    <section class="about-hero"></section>
 
-    <!-- КОНТАКТНАЯ ИНФОРМАЦИЯ -->
-    <section class="contacts-info-section">
-      <div class="container">
-        <h2 class="section-title">КОНТАКТЫ</h2>
-        <div class="underline"></div>
+    <section class="history-section">
+      <div class="history-content">
+        <h2 class="section-title">ИСТОРИЯ НАШЕЙ КОМПАНИИ</h2>
+        <div class="underline"></div> 
+        
+        <div class="history-text">
+          <p>Юридическая компания «Фемида» была основана в 2010 году. 
+            Тогда это был небольшой кабинет, несколько юристов и большая идея: 
+            сделать правовую помощь по-настоящему честной и понятной для каждого. 
+            Первые годы выдались непростыми. 
+            Мы брались за дела, от которых отказывались другие, работали допоздна, учились на практике и 
+            доказывали свою состоятельность каждым выигранным процессом. 
+            Было сложно, но именно эти испытания закалили наш характер и научили главному
+             — нести ответственность за каждое слово и каждое действие.</p>
+          
+          <p>Со временем к нам стали обращаться не только за помощью, но и за доверием. 
+            И тогда мы поняли: чтобы расти, нужно быть максимально требовательными к себе. 
+            Мы выстроили строгую систему отбора. В нашу команду попадают только те, кто годами подтверждал свою 
+            компетентность в реальных судах, кто умеет слышать клиента и кто не боится нестандартных задач. 
+            Никаких случайных людей. Только проверенные временем профессионалы, которые разделяют наши принципы.</p>
+          
+          <p>Сегодня «Фемида» — это сплочённый коллектив экспертов, объединённых одной целью: 
+            добиваться справедливости, даже когда шансы кажутся минимальными. 
+            Мы не даём пустых обещаний, но гарантируем полную отдачу на каждом этапе. 
+            За более чем десятилетие работы мы провели через свои руки тысячи дел, помогли вернуть права, 
+            защитить бизнес и сохранить семьи. И главное — сохранили доверие тех, кто к нам обратился.</p>
+          
+          <p>Мы прошли долгий путь от небольшого офиса до компании, которой доверяют сложные вопросы. 
+            И мы продолжаем расти, чтобы вы могли чувствовать уверенность в завтрашнем дне. 
+            Ваша победа — это наша репутация, и мы дорожим ею превыше всего.</p>
+        </div>
+      </div>
+    </section>
 
-        <div class="contacts-grid">
-          <!-- Левая колонка: подписи -->
-          <div class="contacts-labels">
-            <div class="contact-row">
-              <span class="contact-label">пишите</span>
-              <span class="contact-underline"></span>
-            </div>
-            <div class="contact-row">
-              <span class="contact-label">звоните</span>
-              <span class="contact-underline"></span>
-            </div>
-            <div class="contact-row">
-              <span class="contact-label">приезжайте</span>
-              <span class="contact-underline"></span>
-            </div>
-            <div class="contact-row">
-              <span class="contact-label">читайте</span>
-              <span class="contact-underline"></span>
-            </div>
+    <section class="about-image-wrapper">
+      <img src="images/handAbout.png" alt="Подписание документов">
+    </section>
+
+    <section class="benefits-section">
+      <div class="benefits-content">
+        <h2 class="section-title">ПОЧЕМУ НАС ВЫБИРАЮТ?</h2>
+        <div class="underline"></div> 
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <span>Более 14 лет успешной практики. 
+            Наши юристы — это бывшие сотрудники прокуратуры, судьи в отставке и адвокаты с безупречной репутацией. 
+            Мы знаем систему изнутри и используем эти знания для вашей защиты.</span>
           </div>
-
-          <!-- Правая колонка: данные -->
-          <div class="contacts-data">
-            <div class="contact-row">
-              <a href="mailto:femida_law_ufa@gmail.com" class="contact-value">femida_law_ufa@gmail.com</a>
-              <span class="contact-underline"></span>
-            </div>
-            <div class="contact-row">
-              <a href="tel:+79990451122" class="contact-value">+7-999-045-11-22</a>
-              <span class="contact-underline"></span>
-            </div>
-            <div class="contact-row">
-              <span class="contact-value">г. Уфа, ул. Фрунзенская, д. 45, к. 3</span>
-              <span class="contact-underline"></span>
-            </div>
-            <div class="contact-row">
-              <a href="https://vk.com/femida_law_ufa" target="_blank" class="contact-value">@femida_law_ufa (ВК)</a>
-            <span class="contact-underline"></span>
-            </div>
+          <div class="benefit-card">
+            <span>Мы не даём пустых обещаний. 
+            Если дело безнадёжно — скажем прямо и предложим альтернативу. 
+            Если берёмся за дело — делаем всё возможное и невозможное для победы. 
+            Ваше доверие дороже сиюминутной выгоды.</span>
+          </div>
+          <div class="benefit-card">
+            <span>89% выигранных дел — это не просто цифра. 
+              Это тысячи людей, которые сохранили свой бизнес, свободу, имущество и спокойствие. 
+              Мы работаем на результат, а не на часы. 
+              Вы платите не за время, а за решение вашей проблемы.</span>
           </div>
         </div>
       </div>
@@ -100,11 +114,10 @@
         <p>Мы ВКонтакте: @femida_law_ufa</p>
       </div>
       <div class="footer-copyright">
-        @Юридическая компания Фемида. Все права защищены © 2026
+        @Юридическая компания Фемида. Все права защищены
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
