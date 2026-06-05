@@ -1,4 +1,4 @@
-USE themsis_db;
+USE themis_db;
 
 INSERT INTO statuses (name, slug, description) VALUES
 ('Новая', 'new', 'Заявка только что создана и ожидает назначения'),
@@ -14,9 +14,9 @@ INSERT INTO categories (name, slug) VALUES
 ('Семейное право', 'family_law');
 
 INSERT INTO users (email, password_hash, first_name, last_name, phone, role) VALUES
-('admin@themis.ru', '$2y$10$dummyhashforadmin123', 'Иван', 'Админов', '+79001112233', 'admin'),
-('spec@themis.ru', '$2y$10$dummyhashforspec456', 'Мария', 'Юридова', '+79004445566', 'specialist'),
-('user@themis.ru', '$2y$10$dummyhashforuser789', 'Алексей', 'Клиентов', '+79007778899', 'user');
+('admin@themis.ru', '$2y$12$jgYXQ2RWhO4hJsx2HKWFVuHBsoPCWTG0JHaandYZcc4zgiu3ySzLa', 'Иван', 'Админов', '+79001112233', 'admin'),
+('spec@themis.ru', '$2y$12$jgYXQ2RWhO4hJsx2HKWFVuHBsoPCWTG0JHaandYZcc4zgiu3ySzLa', 'Мария', 'Юридова', '+79004445566', 'specialist'),
+('user@themis.ru', '$2y$12$jgYXQ2RWhO4hJsx2HKWFVuHBsoPCWTG0JHaandYZcc4zgiu3ySzLa', 'Алексей', 'Клиентов', '+79007778899', 'user');
 
 INSERT INTO services (category_id, title, description, price, is_active) VALUES
 (1, 'Консультация по гражданским делам', 'Разбор договоров, исков, претензий, досудебное урегулирование', 5000.00, 1),
