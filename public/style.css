@@ -85,7 +85,7 @@ header {
 
 .nav-links {
   display: flex;
-  gap: 100px;
+  gap: 50px;
   align-items: center;
   margin-top: -200px;
 }
@@ -879,7 +879,6 @@ header {
   position: relative;
   width: 100%;
   height: 552px;
-  /* Замените путь на ваше изображение */
   background: url('images/handshakeLawyers.png') no-repeat center center/cover;
   box-shadow: inset 0px 100px 100px rgba(0, 0, 0, 0.25);
 }
@@ -888,7 +887,7 @@ header {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(65, 65, 65, 0.5); /* Затемнение 50% */
+  background: rgba(65, 65, 65, 0.5);  
 }
 
 .lawyers-container {
@@ -1105,4 +1104,392 @@ header {
   .contacts-hero {
     height: 250px;
   }
+}
+
+
+
+/* КАТАЛОГ УСЛУГ */
+.services-page {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+}
+
+.services-hero {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background: url('images/servicesHero.jpg') no-repeat center center/cover;
+  box-shadow: inset 0px 80px 80px rgba(0, 0, 0, 0.25);
+}
+
+.services-hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(65, 65, 65, 0.4);
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 30px 80px;
+}
+
+.services-title-block {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Фильтры категорий */
+.services-filter {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.filter-btn {
+  padding: 10px 24px;
+  background: var(--white);
+  border: 1px solid #e6d5c0;
+  border-radius: 25px;
+  font-family: 'Playfair Display', serif;
+  font-size: 14pt;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(184, 147, 39, 0.2);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+}
+
+/* Сетка услуг */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid #e6d5c0;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(184, 147, 39, 0.15);
+  border-color: var(--accent);
+}
+
+.service-category {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.service-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--text-main);
+  margin-bottom: 15px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.service-description {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.service-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid #f0e6d6;
+}
+
+.service-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.service-btn {
+  padding: 8px 20px;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 4px;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-btn {
+  background: #a08020;
+}
+
+/* Адаптивность для каталога */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-hero {
+    height: 300px;
+  }
+}
+
+
+/* ДЕТАЛЬНАЯ СТРАНИЦА УСЛУГИ */
+.service-detail-page {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  padding-top: 100px;
+}
+
+.service-detail-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 30px 80px;
+}
+
+.service-back {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.service-back:hover {
+  color: #a08020;
+}
+
+.service-detail-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 50px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border: 1px solid #e6d5c0;
+}
+
+.service-detail-category {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.service-detail-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--text-main);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.service-detail-meta {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #f0e6d6;
+}
+
+.service-detail-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.service-detail-description {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-main);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+/* Форма заявки */
+.service-form-section {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 2px solid #f0e6d6;
+}
+
+.service-form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--text-main);
+  margin-bottom: 25px;
+}
+
+.service-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-form textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 15px;
+  border: 1px solid #e6d5c0;
+  border-radius: 8px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+
+.service-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.service-form button {
+  padding: 14px 30px;
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  align-self: flex-start;
+}
+
+.service-form button:hover {
+  background: #a08020;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(184, 147, 39, 0.3);
+}
+
+.service-login-hint {
+  background: #f9f5ed;
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.service-login-hint a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.service-login-hint a:hover {
+  color: #a08020;
+}
+
+.service-message {
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+}
+
+.service-message.ok {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.service-message.err {
+  background: #fff3f3;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+/* Адаптивность для детальной страницы */
+@media (max-width: 768px) {
+  .service-detail-card {
+    padding: 30px 20px;
+  }
+  .service-detail-title {
+    font-size: 1.8rem;
+  }
+  .service-detail-meta {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+
+
+/* Ссылка "Подробнее" */
+.law-card-more {
+  display: inline-block;
+  margin: 15px 20px 24px;
+  padding: 10px 24px;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 4px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.law-card-more:hover {
+  background: #a08020;
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(184, 147, 39, 0.3);
+}
+
+.law-card-more::after {
+  content: ' →';
+  transition: transform 0.3s;
+}
+
+.law-card-more:hover::after {
+  transform: translateX(3px);
 }
