@@ -8,7 +8,6 @@ $msg = '';
 $action = $_GET['action'] ?? 'list';
 $editId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
-// Обработка POST (сохранение / удаление)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $postAction = $_POST['action'] ?? '';
 
@@ -45,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Загрузка данных
 $cats = $pdo->query("SELECT id, name FROM categories ORDER BY name")->fetchAll();
 $current = null;
 
