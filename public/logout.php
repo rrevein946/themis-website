@@ -1,13 +1,10 @@
 <?php
-// Простой и надёжный выход
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Очищаем все данные сессии
 $_SESSION = [];
 
-// Удаляем куки сессии, если есть
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(session_name(), '', time() - 42000,
@@ -16,9 +13,7 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Уничтожаем сессию
 session_destroy();
 
-// Редирект на главную
 header('Location: /');
 exit;
