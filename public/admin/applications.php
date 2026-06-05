@@ -111,23 +111,85 @@ $statuses = $pdo->query("SELECT id, name FROM statuses ORDER BY id")->fetchAll()
                 </td>
 
                 <td>
-                    <form id="app-form-<?= $app['id'] ?>" method="POST">
-                        <input type="hidden" name="app_id" value="<?= $app['id'] ?>">
-                        
-                        <select name="status_id" style="margin-bottom: 8px;">
-                            <?php foreach ($statuses as $st): ?>
-                                <option value="<?= $st['id'] ?>" <?= $app['status_id'] == $st['id'] ? 'selected' : '' ?>>
-                                    <?= e($st['name']) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                        
-                        <button type="submit" class="btn">💾 Сохранить</button>
-                    </form>
+                <form class="app-form" data-app-id="<?= $app['id'] ?>">
+                    <input type="hidden" name="app_id" value="<?= $app['id'] ?>">
+                    
+                    <select name="status_id" class="status-select" style="margin-bottom: 8px; width:100%; padding:6px; border-radius:4px; border:1px solid #ccc;">
+                    <?php foreach ($statuses as $st): ?>
+                        <option value="<?= $st['id'] ?>" <?= $app['status_id'] == $st['id'] ? 'selected' : '' ?>>
+                        <?= e($st['name']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                    </select>
+                    
+                    <select name="specialist_id" class="specialist-select" style="width:100%; min-width:140px; padding:6px; border-radius:4px; border:1px solid #ccc; margin-bottom:8px;">
+                    <option value="" <?= !$app['specialist_id'] ? 'selected' : '' ?>>Не назначен</option>
+                    <?php foreach ($specialists as $spec): ?>
+                        <option value="<?= $spec['id'] ?>" <?= $app['specialist_id'] == $spec['id'] ? 'selected' : '' ?>>
+                        <?= e($spec['first_name'] . ' ' . $spec['last_name']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                    </select>
+                    
+                    <button type="submit" class="btn save-btn" style="width:100%;">💾 Сохранить</button>
+                </form>
+                
+                <div class="row-message" style="display:none; margin-top:8px; padding:6px 10px; border-radius:4px; font-size:0.85rem;"></div>
                 </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+    <script>
+    document.querySelectorAll('.app-form').forEach(form => {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const saveBtn = form.querySelector('.save-btn');
+        const rowMessage = form.parentElement.querySelector('.row-message');
+        
+        saveBtn.disabled = true;
+        saveBtn.textContent = 'Сохранение...';
+        rowMessage.style.display = 'none';
+        
+        fetch('/api/update_application.php', {
+        method: 'POST',
+        body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+        saveBtn.disabled = false;
+        saveBtn.textContent = '💾 Сохранить';
+        
+        if (data.success) {
+            rowMessage.className = 'row-message';
+            rowMessage.style.background = '#e8f5e9';
+            rowMessage.style.color = '#2e7d32';
+            rowMessage.style.border = '1px solid #a5d6a7';
+            rowMessage.textContent = '✅ ' + data.message;
+            rowMessage.style.display = 'block';
+            
+            setTimeout(() => {
+            rowMessage.style.display = 'none';
+            }, 3000);
+        } else {
+            throw new Error(data.error || 'Неизвестная ошибка');
+        }
+        })
+        .catch(error => {
+        saveBtn.disabled = false;
+        saveBtn.textContent = '💾 Сохранить';
+        rowMessage.className = 'row-message';
+        rowMessage.style.background = '#fff3f3';
+        rowMessage.style.color = '#c62828';
+        rowMessage.style.border = '1px solid #ffcdd2';
+        rowMessage.textContent = '❌ ' + error.message;
+        rowMessage.style.display = 'block';
+        console.error('AJAX обновление заявки:', error);
+        });
+    });
+    });
+    </script>
 </body>
 </html>
