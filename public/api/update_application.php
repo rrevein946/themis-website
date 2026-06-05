@@ -10,7 +10,6 @@ require_once __DIR__ . '/../../src/helpers/auth.php';
 header('Content-Type: application/json; charset=utf-8');
 
 try {
-    // Проверка прав администратора
     if (!isAdmin()) {
         ob_end_clean();
         http_response_code(403);
@@ -21,13 +20,11 @@ try {
         exit;
     }
     
-    // Получаем данные из POST
     $appId = filter_input(INPUT_POST, 'app_id', FILTER_VALIDATE_INT);
     $statusId = filter_input(INPUT_POST, 'status_id', FILTER_VALIDATE_INT);
     $specIdRaw = $_POST['specialist_id'] ?? '';
     $specId = $specIdRaw === '' ? null : (int)$specIdRaw;
     
-    // Валидация
     if (!$appId || !$statusId) {
         ob_end_clean();
         http_response_code(400);
@@ -38,7 +35,6 @@ try {
         exit;
     }
     
-    // Проверяем, что заявка существует
     $stmt = $pdo->prepare("SELECT id FROM applications WHERE id = ?");
     $stmt->execute([$appId]);
     if (!$stmt->fetch()) {
@@ -51,7 +47,6 @@ try {
         exit;
     }
     
-    // Обновляем заявку
     $stmt = $pdo->prepare("
         UPDATE applications 
         SET status_id = ?, specialist_id = ?, updated_at = NOW() 
