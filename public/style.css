@@ -1493,3 +1493,28 @@ header {
 .law-card-more:hover::after {
   transform: translateX(3px);
 }
+
+.service-message {
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+}
+
+.service-message.ok {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.service-message.err {
+  background: #fff3f3;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+#submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
