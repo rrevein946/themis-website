@@ -9,7 +9,6 @@ require_once __DIR__ . '/../src/helpers/auth.php';
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 if (!$id) { header("Location: /services.php"); exit; }
 
-// Загружаем услугу
 $stmt = $pdo->prepare("SELECT s.*, c.name as cat_name FROM services s JOIN categories c ON s.category_id = c.id WHERE s.id = ? AND s.is_active = 1");
 $stmt->execute([$id]);
 $service = $stmt->fetch();
@@ -74,18 +73,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <div class="service-form-section">
-          <h3 class="service-form-title">Оставить заявку на консультацию</h3>
-          
-          <?php if (isAuth()): ?>
-            <form method="POST" class="service-form">
-              <textarea name="message" placeholder="Кратко опишите вашу ситуацию или вопрос..." required></textarea>
-              <button type="submit">Отправить заявку</button>
+        <h3 class="service-form-title">Оставить заявку на консультацию</h3>
+        
+        <div id="formMessage" style="display:none; padding:15px 20px; border-radius:8px; margin-bottom:20px;"></div>
+        
+        <?php if (isAuth()): ?>
+            <form id="applicationForm" class="service-form">
+            <input type="hidden" name="service_id" value="<?= $service['id'] ?>">
+            <textarea name="message" placeholder="Кратко опишите вашу ситуацию или вопрос..." required></textarea>
+            <button type="submit" id="submitBtn">Отправить заявку</button>
             </form>
-          <?php else: ?>
+        <?php else: ?>
             <div class="service-login-hint">
-              Для отправки заявки необходимо <a href="/login.php">войти</a> или <a href="/register.php">зарегистрироваться</a>.
+            Для отправки заявки необходимо <a href="/login.php">войти</a> или <a href="/register.php">зарегистрироваться</a>.
             </div>
-          <?php endif; ?>
+        <?php endif; ?>
         </div>
       </div>
     </div>
